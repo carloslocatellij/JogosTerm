@@ -105,7 +105,9 @@ def atravessar():
       canoa['margem'] = 'esquerda'
       
 if __name__ == '__main__':
-  print(historia)
-  ver()
   
-  comando = input('>>> ')
+  print(historia)
+  input()
+  ver()
+  while True:  
+    comando = input('>>> ')

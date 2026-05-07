@@ -3,55 +3,52 @@ from os import system
 from interface import tela
 import sys
 
-def embaralhar():
-    figuras  =  ['🦊', '🐢', '🐦', '🐥', '😺', '🐞', '🐑', '🍧', '🐒', '🍕' ,
-                '🍇', '👻', '💎', '🍔', '🏀', '🌽', '⚽', '🌜', '👒', '🌎'
-                ]
-#figuras_menos = figuras[:14]
-    figuras = figuras * 2
-    shuffle(figuras)
-    cartas = []
-    for _ in range(5):
-        cartas.append ([figuras.pop() for _ in range(8)])
-    back_card = []
-    for _ in range(5):
-        back_card.append(['🃏' for z in range(8)])
-    
-    return cartas, back_card
-
-cartas, back_card = embaralhar()
+# def embaralhar():
+#     figuras  =  ['🦊', '🐢', '🐦', '🐥', '😺', '🐞', '🐑', '🍧', '🐒', '🍕' ,
+#                 '🍇', '👻', '💎', '🍔', '🏀', '🌽', '⚽', '🌜', '👒', '🌎'
+#                 ]
+# #figuras_menos = figuras[:14]
+#     figuras = figuras * 2
+#     shuffle(figuras)
+#     cartas = []
+#     for _ in range(5):
+#         cartas.append ([figuras.pop() for _ in range(8)])
+#     back_card = []
+#     for _ in range(5):
+#         back_card.append(['🃏' for z in range(8)])
+#     return cartas, back_card
+# cartas, back_card = embaralhar()
         
-# print(cartas)
-# print(back_card)
-system('clear')
+# # print(cartas)
+# # print(back_card)
+# system('clear')
 
-
-print('''REGRAS DO JOGO: Até dois players podem jogar!
-           Para escolher sua carta: digite de A até E para escolher a linha 
-           da carta e de 0 a 7 para escolher a posição da carta da linha. 
-           Por exemplo:
-           Se você digitar B2 estará escolhendo terceira carta da
-           segunda linha.
-           Caso encontre duas figuras iguais (um par) você joga novamente.
-           Se estiver jogando sozinho e fizer par, você também ganha pontos.
-           Se não fizer par: você não perde pontos, mas perde sua vez de
-           jogar. 
-           Para sair digite 'Q'.       
-           ''') 
-print('Escolha duas _cartas')
+# print('''REGRAS DO JOGO: Até dois players podem jogar!
+#            Para escolher sua carta: digite de A até E para escolher a linha 
+#            da carta e de 0 a 7 para escolher a posição da carta da linha. 
+#            Por exemplo:
+#            Se você digitar B2 estará escolhendo terceira carta da
+#            segunda linha.
+#            Caso encontre duas figuras iguais (um par) você joga novamente.
+#            Se estiver jogando sozinho e fizer par, você também ganha pontos.
+#            Se não fizer par: você não perde pontos, mas perde sua vez de
+#            jogar. 
+#            Para sair digite 'Q'.       
+#            ''') 
+# print('Escolha duas _cartas')
   
 
 linha = {'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4}
 
-def troca( cart: tuple):
-    back_card[cart[0]][cart[1]] = cartas[cart[0]][cart[1]]
+# def troca( cart: tuple):
+#     back_card[cart[0]][cart[1]] = cartas[cart[0]][cart[1]]
 
-def sair(x):
-    if x in ['Q', 'q']:
-        print(" Até a próxima. bye bye")
-        sys.exit()    
-    else:
-        return True
+# def sair(x):
+#     if x in ['Q', 'q']:
+#         print(" Até a próxima. bye bye")
+#         sys.exit()    
+#     else:
+#         return True
         
 def escolha():
     esc = ""
@@ -99,11 +96,6 @@ def loop_principal ():
         venceu()
         embaralhar()
         
-    
-    # print('PARABÉNS VOCÊ VENCEU !')
-    # print('Jogue Novamente')
-    # embaralhar()
-    # loop_principal()
      
 if __name__ == '__main__':
     loop_principal()

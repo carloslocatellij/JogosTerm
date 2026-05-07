@@ -34,12 +34,12 @@ def passar(origem, destino):
     if '        ' == ''.join(origem):
         print(f"Não tem nada neste tubete!")
         tela()
-        return None
+        return 
         
     elif '  ' not in destino:
         print(f"Não cabe!")
         tela()
-        return None
+        return 
         
     else:
         for numdest, it in enumerate(destino):   
@@ -52,8 +52,27 @@ def passar(origem, destino):
                     elif numdest <= 2 and destino[numdest+1] != i:
                         print(f"{destino[numdest+1]} e {origem[numori]} são diferentes. Precisam ser iguais!")
                         tela()
-                        return None
+                        return 
                     else:
                         trocar(numori, numdest)
                         tela()
-                        return None
+                        return 
+
+if __name__ == '__main__':
+    while True:
+        tela()
+        quest1 = quest2 = ''
+        while not quest1.isdigit() and not quest2.isdigit():
+            print('informe apenas números.')
+            quest1 = input('informe o número da origem: ')
+            if quest1.isdigit() and int(quest1) > 4:
+                print('deve ser entre 1 e 4')
+                break
+            quest2 = input('informe o número do destino: ')
+            if quest2.isdigit() and int(quest1) > 4:
+                print('deve ser entre 1 e 4')
+                break
+                    
+        passar(quest1, quest2)
+        
+        
