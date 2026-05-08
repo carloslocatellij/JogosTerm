@@ -7,8 +7,15 @@ from Jogo_da_Memoria.memo_screen import Memo_Game_Screen
 
 class Menu(Screen):
     
-    CSS = """Screen { align: center middle; background: $background; }
-             Horizontal {align: center middle;}
+    CSS = """Screen {     
+    background: $boost;
+    height: 5;
+    margin: 1;
+    min-width: 50;
+    padding: 1; }
+    
+             Horizontal {
+                 align: center middle;}
             """
     
     def compose(self) -> ComposeResult:
