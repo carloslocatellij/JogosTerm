@@ -170,6 +170,7 @@ class SpaceShipApp(App):
                     self.update_score()
                     break # Sai do loop de inimigos pois o laser já foi destruído
 
+
 if __name__ == "__main__":
     app = SpaceShipApp()
     app.run()
