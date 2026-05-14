@@ -1,16 +1,10 @@
 # A tela do Jogo
 from typing import int
 from textual.app import ComposeResult
+from textual.widgets import Static
 from textual.screen import Screen
 from textual.reactive import reactive
 
-# def tela(x, y, char, last_pos):
-    
-#     next_pos = t[y][x]
-    
-#     t[y][x] = char
-    
-#     t[last_pos[1]][last_pos[0]] = next_po
 
 
 class Tela(Screen):
@@ -30,7 +24,7 @@ class Tela(Screen):
         self.objetos = []
         
     def compose(self) -> ComposeResult:
-        yield Screen()
+        yield Static(id='tela')
         
         
     def update_element_id_position(self, elem_id: int, obj_x: int, obj_y: int) -> None:
@@ -38,6 +32,7 @@ class Tela(Screen):
         next_pos = obj_x, obj_y
         
         self.matriz_da_tela[obj_x][obj_y] = self.query_one(elem_id).label 
+        last_pos = self.query_one(elem_id).x, self.query_one(elem_id).y
         
         self.matriz_da_tela[last_pos[1]][last_pos[0]] = next_pos 
         
@@ -52,4 +47,4 @@ class Tela(Screen):
             
         
     def watch_matriz_da_tela(self) -> None:
-        
+        self.update_elements_positions(pos_atualizations)

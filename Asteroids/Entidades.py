@@ -1,11 +1,14 @@
 from textual.widgets import Static
+from textual.reactive import var
 
 
 class wizzard(Static):                
     def __init__(self, x: int, y: int): 
-        super().__init__("🧙🏻‍♂️", classes="enemy")   
-        self.x = float(x)
-        self.y = float(y)  
+        super().__init__("🧙🏻‍♂️", classes="person")
+        self.id = 'Player_person'
+        self.x = var(float(x))
+        self.y = var(float(y))
+    
     
     def move_para_cima(self):
         self.y -= 1
@@ -15,7 +18,7 @@ class wizzard(Static):
         self.x += 2
     def move_para_esquerda(self):
         self.x -= 2
-
+        
     def on_mount(self) -> None:
         self.styles.offset = (int(self.x), int(self.y))
         
@@ -24,8 +27,8 @@ class wizzard(Static):
 class enemy(Static):                
     def __init__(self, x: int, y: int):
         super().__init__("👾", classes="enemy")
-        self.x = float(x)
-        self.y = float(y)
+        self.x = var(float(x))
+        self.y = var(float(y))
 
     def move_para_cima(self):
         self.y -= 1
